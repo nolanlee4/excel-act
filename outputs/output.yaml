@@ -1,0 +1,43 @@
+veos:
+  username: admin
+  password: admin123
+  version: 4.29.3M
+  instance: veos1
+ceos:
+  username: admin
+  password: ceos123
+  version: 4.25.1F
+  instance: ceos1
+arista:
+  username: admin
+  password: arista!
+  version: 4.27.1F
+  instance: arista1
+nodes:
+- node1:
+    node_type: veos
+    ip_addr: 192.168.1.1
+    device_model: vEOS-LAB
+    ztp: true
+    serial_number: sn1
+- node2:
+    node_type: ceos
+    ip_addr: 192.168.1.2
+    device_model: DCS-7050CX3
+    ztp: false
+    serial_number: sn2
+- node3:
+    node_type: arista
+    ip_addr: 192.168.1.3
+    device_model: Arista-7280
+
+links:
+    - connection:
+        - node1:Ethernet1
+        - node2:Ethernet2
+    - connection:
+        - node2:Ethernet3
+        - node3:Ethernet4
+    - connection:
+        - node1:Ethernet5
+        - node3:Ethernet6
